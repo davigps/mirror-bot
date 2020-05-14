@@ -18,6 +18,3 @@ class KeyboardController:
                 self.controller.press(key)
             else:
                 self.controller.release(key)
-
-    
-

@@ -12,9 +12,21 @@ class MouseController:
 
     def start(self):
         for setence in self.stream:
+            sleep(setence.pause)
+
             if setence.action == 'mv':
                 position = (int(pos) for pos in setence.metadata.split(','))
                 self.controller.position = position
+
             elif setence.action == 'sc':
                 scroll = (int(delta) for delta in setence.metadata.split(','))
                 self.controller.scroll(scroll[0], scroll[1])
+
+            else:
+                button = mouse.Button[setence.metadata]
+                if setence.action == 'ps':
+                    self.controller.press(button)
+                else:
+                    self.controller.release(button)
+
+
