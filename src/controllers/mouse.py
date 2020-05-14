@@ -4,7 +4,7 @@ from pynput import keyboard
 
 
 class MouseController:
-    '''Will reproduce everything on mimic file.'''
+    '''Will reproduce everything on mirror file.'''
 
     def __init__(self, file: TextIOWrapper):
         self.file = file

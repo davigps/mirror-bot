@@ -20,8 +20,8 @@ def record():
     name = input("Record's name: ")
 
     try:
-        record_k = open(ROOT.joinpath('src', 'mimics', f'{name}.kmimic'), 'a')
-        record_m = open(ROOT.joinpath('src', 'mimics', f'{name}.mmimic'), 'a')
+        record_k = open(ROOT.joinpath('src', 'mirrors', f'{name}.kmirror'), 'a')
+        record_m = open(ROOT.joinpath('src', 'mirrors', f'{name}.mmirror'), 'a')
     except:
         print("---! Cannot create record's files.")
         raise
@@ -40,8 +40,8 @@ def play():
     name = input("Record's name: ")
 
     try:
-        record_k = open(ROOT.joinpath('src', 'mimics', f'{name}.kmimic'), 'r')
-        record_m = open(ROOT.joinpath('src', 'mimics', f'{name}.mmimic'), 'r')
+        record_k = open(ROOT.joinpath('src', 'mirrors', f'{name}.kmirror'), 'r')
+        record_m = open(ROOT.joinpath('src', 'mirrors', f'{name}.mmirror'), 'r')
     except:
         print("---! Cannot open record's files.")
         raise 

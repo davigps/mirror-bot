@@ -4,14 +4,14 @@ from time import sleep
 from pynput import keyboard
 
 class KeyboardController:
-  '''Will record everything pressed on keyboard.'''
+    '''Will reproduce everything on mirror file.'''
 
-  def __init__(self, stream: List[Setence]):
-      self.controller = keyboard.Controller()
-      self.stream = stream
+    def __init__(self, stream: List[Setence]):
+        self.controller = keyboard.Controller()
+        self.stream = stream
 
-  def start(self):
-    pass
+    def start(self):
+        pass
 
     
 
