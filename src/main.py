@@ -3,8 +3,8 @@ from utils import ROOT, prepare_start
 
 from recorders.keyboard import KeyboardRecorder
 from recorders.mouse import MouseRecorder
-from interpreter import Interpreter
-from controller import Controller
+from interpreters.main import Interpreter
+from controllers.main import Controller
 
 
 INITIAL_MESSAGE = '''
