@@ -15,8 +15,13 @@ class MouseController:
             sleep(setence.pause)
 
             if setence.action == 'mv':
+                current_position = self.controller.position
                 position = (int(pos) for pos in setence.metadata.split(','))
-                self.controller.position = position
+                
+                self.controller.move(
+                    current_position[0] - position[0],
+                    current_position[1] - position[1]
+                )
 
             elif setence.action == 'sc':
                 scroll = (int(delta) for delta in setence.metadata.split(','))

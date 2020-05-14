@@ -12,7 +12,10 @@ class KeyboardController:
 
     def start(self):
         for setence in self.stream:
-            key = keyboard.Key[setence.metadata]
+            if len(setence.metadata) > 1:
+                key = keyboard.Key[setence.metadata]
+            else:
+                key = setence.metadata
             sleep(setence.pause)
             if setence.action == 'ps':
                 self.controller.press(key)
