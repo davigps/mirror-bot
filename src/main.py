@@ -3,11 +3,8 @@ from utils import ROOT, prepare_start
 
 from recorders.keyboard import KeyboardRecorder
 from recorders.mouse import MouseRecorder
-from interpreters.keyboard import KeyboardInterpreter
-from interpreters.mouse import MouseInterpreter
-from controllers.keyboard import KeyboardController
-from controllers.mouse import MouseController
-
+from interpreter import Interpreter
+from controller import Controller
 
 
 INITIAL_MESSAGE = '''
@@ -16,53 +13,46 @@ Type "R" to record your keyboard and mouse.
 Type "P" to play your already saved record.
 '''
 
-def record():
+def recordMirror():
     name = input("Record's name: ")
 
     try:
-        record_k = open(ROOT.joinpath('src', 'mirrors', f'{name}.kmirror'), 'a')
-        record_m = open(ROOT.joinpath('src', 'mirrors', f'{name}.mmirror'), 'a')
+        record = open(ROOT.joinpath('src', 'mirrors', f'{name}.mirror'), 'a')
     except:
-        print("---! Cannot create record's files.")
+        print("---! Cannot create record file.")
         raise
+    delay_information = [None]
 
-    k_recorder = KeyboardRecorder(record_k)
+    k_recorder = KeyboardRecorder(record, delay_information)
     k_thread = Thread(target=k_recorder.start)
 
-    m_recorder = MouseRecorder(record_m, k_thread.is_alive)
+    m_recorder = MouseRecorder(record, delay_information, k_thread.is_alive)
     m_thread = Thread(target=m_recorder.start)
 
     prepare_start()
     k_thread.start()
     m_thread.start()
 
-def play():
+def playMirror():
     name = input("Record's name: ")
 
     try:
-        record_k = open(ROOT.joinpath('src', 'mirrors', f'{name}.kmirror'), 'r')
-        record_m = open(ROOT.joinpath('src', 'mirrors', f'{name}.mmirror'), 'r')
+        record = open(ROOT.joinpath('src', 'mirrors', f'{name}.mirror'), 'r')
     except:
-        print("---! Cannot open record's files.")
+        print("---! Cannot open record file.")
         raise 
     
-    k_stream = KeyboardInterpreter(record_k).get_stream()
-    m_stream = MouseInterpreter(record_m).get_stream()
+    stream = Interpreter(record).get_stream()
 
     prepare_start()
-    Thread(
-        target=KeyboardController(k_stream).start
-        ).start()
-    Thread(
-        target=MouseController(m_stream).start
-        ).start()
+    Controller(stream).start()
 
 def main():
     print(INITIAL_MESSAGE)
     res = input('-> ').lower()
 
-    if res == 'r': record()
-    elif res == 'p': play()
+    if res == 'r': recordMirror()
+    elif res == 'p': playMirror()
     else: quit()
 
 if __name__ == "__main__":
