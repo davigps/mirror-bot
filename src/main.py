@@ -16,51 +16,53 @@ Type "R" to record your keyboard and mouse.
 Type "P" to play your already saved record.
 '''
 
+def record():
+    name = input("Record's name: ")
+
+    try:
+        record_k = open(ROOT.joinpath('src', 'mimics', f'{name}.kmimic'), 'a')
+        record_m = open(ROOT.joinpath('src', 'mimics', f'{name}.mmimic'), 'a')
+    except:
+        print("---! Cannot create record's files.")
+        raise
+
+    k_recorder = KeyboardRecorder(record_k)
+    k_thread = Thread(target=k_recorder.start)
+
+    m_recorder = MouseRecorder(record_m, k_thread.is_alive)
+    m_thread = Thread(target=m_recorder.start)
+
+    prepare_start()
+    k_thread.start()
+    m_thread.start()
+
+def play():
+    name = input("Record's name: ")
+
+    try:
+        record_k = open(ROOT.joinpath('src', 'mimics', f'{name}.kmimic'), 'r')
+        record_m = open(ROOT.joinpath('src', 'mimics', f'{name}.mmimic'), 'r')
+    except:
+        print("---! Cannot open record's files.")
+        raise 
+    
+    k_stream = KeyboardInterpreter(record_k).get_stream()
+    m_stream = MouseInterpreter(record_m).get_stream()
+
+    prepare_start()
+    Thread(
+        target=KeyboardController(k_stream).start
+        ).start()
+    Thread(
+        target=MouseController(m_stream).start
+        ).start()
+
 def main():
     print(INITIAL_MESSAGE)
     res = input('-> ').lower()
 
-    if res == 'r':
-        name = input("Record's name: ")
-
-        try:
-            record_k = open(ROOT.joinpath('src', 'mimics', f'{name}.kmimic'), 'a')
-            record_m = open(ROOT.joinpath('src', 'mimics', f'{name}.mmimic'), 'a')
-        except:
-            print("---! Cannot create record's files.")
-            raise
-
-        k_recorder = KeyboardRecorder(record_k)
-        k_thread = Thread(target=k_recorder.start)
-
-        m_recorder = MouseRecorder(record_m, k_thread.is_alive)
-        m_thread = Thread(target=m_recorder.start)
-
-        prepare_start()
-        k_thread.start()
-        m_thread.start()
-
-    elif res == 'p':
-        name = input("Record's name: ")
-
-        try:
-            record_k = open(ROOT.joinpath('src', 'mimics', f'{name}.kmimic'), 'r')
-            record_m = open(ROOT.joinpath('src', 'mimics', f'{name}.mmimic'), 'r')
-        except:
-            print("---! Cannot open record's files.")
-            raise 
-        
-        k_stream = KeyboardInterpreter(record_k).get_stream()
-        m_stream = MouseInterpreter(record_m).get_stream()
-
-        prepare_start()
-        Thread(
-            target=KeyboardController(k_stream).start
-            ).start()
-        Thread(
-            target=MouseController(m_stream).start
-            ).start()
-
+    if res == 'r': record()
+    elif res == 'p': play()
     else: quit()
 
 if __name__ == "__main__":

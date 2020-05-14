@@ -11,6 +11,7 @@ class MouseInterpreter:
     
     def read_record(self):
         for string in self.record.split(';'):
+            if not string: continue
             setence = Setence(string, 'm')
             self.setences.append(setence)
     

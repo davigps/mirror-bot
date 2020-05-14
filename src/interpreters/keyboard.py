@@ -11,6 +11,7 @@ class KeyboardInterpreter:
     
     def read_record(self):
         for string in self.record.split('|;|'):
+            if not string: continue
             setence = Setence(string, 'k')
             self.setences.append(setence)
     
