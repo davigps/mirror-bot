@@ -5,6 +5,6 @@ class Setence:
 
     def read_string(self, string):
         parts = string.split(self.separator)
-        self.pause = float(parts[0])
-        self.action = parts[1]
-        self.metadata = parts[2]
+        self.pause: float = float(parts[0])
+        self.action: str = parts[1]
+        self.metadata: str = parts[2]
