@@ -2,7 +2,7 @@ from _io import TextIOWrapper
 from time import time, sleep
 from pynput import keyboard
 
-class KeyboardRecorder:
+class KeyboardController:
   '''Will record everything pressed on keyboard.'''
 
   def __init__(self, arq: TextIOWrapper):
