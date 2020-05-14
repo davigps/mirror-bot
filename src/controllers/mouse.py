@@ -11,7 +11,11 @@ class MouseController:
         self.stream = stream
 
     def start(self):
-        for setence in self.stream:
+        for i, setence in enumerate(self.stream):
+            if i == 0:
+                self.controller.position = (int(pos) for pos in setence.metadata.split(','))
+                continue
+
             sleep(setence.pause)
 
             if setence.action == 'mv':
