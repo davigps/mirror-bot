@@ -1,15 +1,17 @@
-from _io import TextIOWrapper
-from time import time, sleep
+from typing import List
+from interpreters.setence import Setence
+from time import sleep
 from pynput import keyboard
 
 class KeyboardController:
   '''Will record everything pressed on keyboard.'''
 
-  def __init__(self, arq: TextIOWrapper):
-    self.arq = arq
-    self.initial_time: float = None
-  
+  def __init__(self, stream: List[Setence]):
+      self.controller = keyboard.Controller()
+      self.stream = stream
+
   def start(self):
-    self.initial_time = time()
+    pass
+
     
 

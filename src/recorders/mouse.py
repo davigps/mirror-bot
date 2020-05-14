@@ -35,12 +35,16 @@ class MouseRecorder:
         if pressed:
             delta = time() - self.last_event
             self.last_event = time()
-            data = f'{delta}&ps&{button};'
+
+            metadata = str(button).replace('Button.', '')
+            data = f'{delta}&ps&{metadata};'
             self.file.write(data)
         else:
             delta = time() - self.last_event
             self.last_event = time()
-            data = f'{delta}&rs&{button};'
+
+            metadata = str(button).replace('Button.', '')
+            data = f'{delta}&rs&{metadata};'
             self.file.write(data)
     
     @close_if_needed

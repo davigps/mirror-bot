@@ -26,7 +26,8 @@ class KeyboardRecorder:
             self.file.close()
             return False
         
-        data = f'{delta}|&|ps|&|{key}|;|'
+        metadata = str(key).replace('Key.', '').replace("'", '')
+        data = f'{delta}|&|ps|&|{metadata}-;-'
         self.file.write(data)
 
 
@@ -34,6 +35,7 @@ class KeyboardRecorder:
         delta = time() - self.last_event
         self.last_event = time()
 
-        data = f'{delta}|&|rs|&|{key}|;|'
+        metadata = str(key).replace('Key.', '').replace("'", '')
+        data = f'{delta}|&|rs|&|{metadata}-;-'
         self.file.write(data)
 
