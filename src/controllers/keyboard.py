@@ -10,7 +10,6 @@ class KeyboardController:
     self.initial_time: float = None
   
   def start(self):
-    '''Start and set recorder's initial time.'''
     self.initial_time = time()
     
 

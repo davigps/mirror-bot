@@ -2,15 +2,13 @@ from _io import TextIOWrapper
 from time import time, sleep
 from pynput import keyboard
 
-class MouseController:
-  '''Will record everything pressed on keyboard.'''
 
-  def __init__(self, arq: TextIOWrapper):
-    self.arq = arq
-    self.initial_time: float = None
+class MouseController:
+    '''Will reproduce everything on mimic file.'''
+
+    def __init__(self, file: TextIOWrapper):
+        self.file = file
   
-  def start(self):
-    '''Start and set recorder's initial time.'''
-    self.initial_time = time()
-    
+    def start(self):
+        pass
 
