@@ -10,10 +10,7 @@ def read_setence(controller: Controller, setence: Setence):
         current_position = controller.position
         position = [int(pos) for pos in setence.metadata.split(',')]
         
-        controller.move(
-            position[0] - current_position[0],
-            position[1] - current_position[1]
-        )
+        controller.position = tuple(position)
 
     elif setence.action == 'sc':
         scroll = (int(delta) for delta in setence.metadata.split(','))
