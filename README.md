@@ -46,6 +46,10 @@ or
 python3 src/main.py
 ```
 
+The menu will start and you will choose between Record or Play some previously recorded file, if you dont have any file, just type "r" on menu prompt and after the start sound, the bot will record every button you press until you press the escape key (esc). To play some file, just type "p" on menu prompt and type name file, then, the bot will play every press and release on the file.
+
+REMEMBER: Press "esc" to stop the recording.
+
 ### Installing Prerequisites
 
 Clone repository on your local machine and open its directory.
