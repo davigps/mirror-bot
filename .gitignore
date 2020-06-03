@@ -7,3 +7,4 @@ share
 pyvenv.cfg
 *.mirror
 .vscode
+start_venv.sh
