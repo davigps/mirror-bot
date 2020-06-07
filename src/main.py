@@ -19,20 +19,19 @@ def recordMirror():
 
     try:
         record = open(ROOT.joinpath('src', 'mirrors', f'{name}.mirror'), 'a')
+        delay_information = [None]
+
+        k_recorder = KeyboardRecorder(record, delay_information)
+        k_thread = Thread(target=k_recorder.start)
+
+        m_recorder = MouseRecorder(record, delay_information, k_thread.is_alive)
+        m_thread = Thread(target=m_recorder.start)
+
+        prepare_start()
+        k_thread.start()
+        m_thread.start()
     except:
         print("---! Cannot create record file.")
-        raise
-    delay_information = [None]
-
-    k_recorder = KeyboardRecorder(record, delay_information)
-    k_thread = Thread(target=k_recorder.start)
-
-    m_recorder = MouseRecorder(record, delay_information, k_thread.is_alive)
-    m_thread = Thread(target=m_recorder.start)
-
-    prepare_start()
-    k_thread.start()
-    m_thread.start()
 
 def playMirror():
     '''Get the name of a file and play it.'''
@@ -40,14 +39,13 @@ def playMirror():
 
     try:
         record = open(ROOT.joinpath('src', 'mirrors', f'{name}.mirror'), 'r')
+
+        stream = Interpreter(record).get_stream()
+
+        prepare_start()
+        Controller(stream).start()
     except:
         print("---! Cannot open record file.")
-        raise 
-    
-    stream = Interpreter(record).get_stream()
-
-    prepare_start()
-    Controller(stream).start()
 
 def main():
     ''' Main Menu Function to play and record with the BOT.'''
