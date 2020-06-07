@@ -4,6 +4,7 @@ from time import sleep
 from pynput.mouse import Controller, Button
 
 def read_setence(controller: Controller, setence: Setence):
+    '''Read the keyboard setence and press or release its key.'''
     sleep(setence.pause)
 
     if setence.action == 'mv':

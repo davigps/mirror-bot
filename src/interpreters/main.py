@@ -10,10 +10,15 @@ class Interpreter:
         self.read_record()
     
     def read_record(self):
+        '''
+        Read some mirror recorded file, by changing the string into Setence Object,
+        then, append it in setence list.
+        '''
         for string in self.record.split('-;-'):
             if not string: continue
             setence = Setence(string)
             self.setences.append(setence)
     
     def get_stream(self) -> List[Setence]:
+        '''Return Setence List'''
         return self.setences

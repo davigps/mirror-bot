@@ -3,6 +3,8 @@ from time import sleep
 from pynput.keyboard import Controller, Key
 
 def read_setence(controller: Controller, setence: Setence):
+    '''Read the keyboard setence and press or release its key.'''
+
     if len(setence.metadata) > 1:
         key = Key[setence.metadata]
     else:

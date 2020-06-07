@@ -14,6 +14,7 @@ Type "P" to play your already saved record.
 '''
 
 def recordMirror():
+    '''Get the name of a file and record it.'''
     name = input("Record's name: ")
 
     try:
@@ -34,6 +35,7 @@ def recordMirror():
     m_thread.start()
 
 def playMirror():
+    '''Get the name of a file and play it.'''
     name = input("Record's name: ")
 
     try:
@@ -48,6 +50,7 @@ def playMirror():
     Controller(stream).start()
 
 def main():
+    ''' Main Menu Function to play and record with the BOT.'''
     print(INITIAL_MESSAGE)
     res = input('-> ').lower()
 

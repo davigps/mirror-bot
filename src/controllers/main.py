@@ -7,7 +7,10 @@ from controllers import keyboard, mouse
 
 
 class Controller:
-    '''Will reproduce everything on mirror file.'''
+    '''
+        Class responsable for read every setence and
+        execute by calling the controller of its type.
+    '''
 
     def __init__(self, stream: List[Setence]):
         self.keyboardController = pynput.keyboard.Controller()
@@ -15,6 +18,7 @@ class Controller:
         self.stream = stream
 
     def start(self):
+        '''Start the main Controller to read and execute every setence.'''
         for i, setence in enumerate(self.stream):
             if i == 0:
                 self.mouseController.position = (int(pos) for pos in setence.metadata.split(','))

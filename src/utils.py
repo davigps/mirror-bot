@@ -17,6 +17,7 @@ def play_effect(path: str):
     playback.play(effect)
 
 def prepare_start():
+    '''Play sounds to alert some start.'''
     play_effect(BIP)
     sleep(1)
     play_effect(BIP)
