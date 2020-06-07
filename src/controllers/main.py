@@ -19,11 +19,7 @@ class Controller:
 
     def start(self):
         '''Start the main Controller to read and execute every setence.'''
-        for i, setence in enumerate(self.stream):
-            if i == 0:
-                self.mouseController.position = (int(pos) for pos in setence.metadata.split(','))
-                continue
-
+        for setence in self.stream:
             if setence.type == 'k':
                 keyboard.read_setence(self.keyboardController, setence)
             else:

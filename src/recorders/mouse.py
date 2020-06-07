@@ -24,9 +24,6 @@ class MouseRecorder:
     def start(self):
         '''Start process and set recorder's initial time.'''
 
-        current_position = mouse.Controller().position
-        self.append_data(0, 'st', f'{current_position[0]},{current_position[1]}')
-
         with mouse.Listener(
             on_click=self.on_click, 
             on_move=self.on_move,
