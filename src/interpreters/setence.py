@@ -1,7 +1,6 @@
 class Setence:
     '''
-    Setence Class, will transform the statement string into an object with
-    each part of it in different atributes.
+    Setence Class, an object represetation of a string setence (statement).
     '''
     def __init__(self, string: str):
         self.read_string(string)
