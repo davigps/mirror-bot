@@ -38,12 +38,15 @@ The entire bot is written in Python 3.6.
 
 To use the bot, you will need all requirements installed.
 Then, just type:
+
 ```
 ./mirrorBOT
 ```
+
 or
+
 ```
-python3 src/main.py
+poetry run python src/main.py
 ```
 
 The menu will start and you will choose between Record or Play some previously recorded file, if you dont have any file, just type "r" on menu prompt and after the start sound, the bot will record every button you press until you press the escape key (esc). To play some file, just type "p" on menu prompt and type name file, then, the bot will play every press and release on the file.
@@ -53,14 +56,17 @@ REMEMBER: Press "esc" to stop the recording.
 ### Installing Prerequisites
 
 Clone repository on your local machine and open its directory.
+
 ```
 git clone https://github.com/davigsousa/mirror-bot.git && cd mirror-bot
 ```
-Then, install its requirements with pip
+
+Then, install its requirements with [poetry](https://python-poetry.org/).
+
 ```
-pip install -r requirements_dev.txt
-pip install -r requirements.txt
+poetry install
 ```
+
 Finally, you are ready to go!
 
 ## ⛏️ Built Using <a name = "built_using"></a>
