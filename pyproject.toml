@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "mirror-bot"
+version = "0.1.0"
+description = "This bot record and/or reproduce everything you do on your keyboard and mouse."
+authors = ["Davi Sousa <davi.gomes.sousa@ccc.ufcg.edu.br>"]
+
+[tool.poetry.dependencies]
+python = "^3.6"
+pydub = "^0.25.1"
+pynput = "^1.7.6"
+
+[tool.poetry.dev-dependencies]
+wheel = "^0.32.3"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
