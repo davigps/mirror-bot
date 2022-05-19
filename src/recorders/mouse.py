@@ -1,7 +1,7 @@
+from io import TextIOWrapper
 from threading import Thread
-from time import sleep, time
+from time import time
 
-from _io import TextIOWrapper
 from pynput import mouse
 
 

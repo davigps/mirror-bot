@@ -1,5 +1,4 @@
 from time import sleep
-from typing import List
 
 from pynput.mouse import Button, Controller
 

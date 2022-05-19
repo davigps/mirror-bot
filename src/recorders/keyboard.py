@@ -1,6 +1,6 @@
-from time import sleep, time
+from io import TextIOWrapper
+from time import time
 
-from _io import TextIOWrapper
 from pynput import keyboard
 
 

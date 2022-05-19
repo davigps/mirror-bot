@@ -1,6 +1,5 @@
+from io import TextIOWrapper
 from typing import List
-
-from _io import TextIOWrapper
 
 from interpreters.setence import Setence
 
