@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 from mirror_bot.cli.commands import Commands
 
 
