@@ -16,15 +16,15 @@ class Commands:
     
 
     def __init__(self) -> None:
-        parse = argparse.ArgumentParser(description=DESCRIPTION)
+        self.parser = argparse.ArgumentParser(description=DESCRIPTION)
 
-        parse.add_argument(
+        self.parser.add_argument(
             '-l', '--list', action='store_true'
         )
-        parse.add_argument('-p', '--play')
-        parse.add_argument('-r', '--record')
+        self.parser.add_argument('-p', '--play')
+        self.parser.add_argument('-r', '--record')
 
-        args, unknown = parse.parse_known_args()
+        args, unknown = self.parser.parse_known_args()
         self.args = args
         self.unknown = unknown
     
@@ -40,3 +40,5 @@ class Commands:
         if self.args.record:
             command.record_mirror(self.args.record)
             return
+        
+        self.parser.print_help()
