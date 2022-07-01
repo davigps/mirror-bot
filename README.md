@@ -28,6 +28,9 @@ to reproduce that routine previously saved. It's very useful to save your precio
 
 ## 💭 How it works <a name = "working"></a>
 
+
+![Peek 2022-07-01 02-13](https://user-images.githubusercontent.com/40612788/176828300-5480d593-bec8-4b7a-969b-7e80bf878897.gif)
+
 The bot will record every button you press and when you release it on a file <br>
 with extension .mirror, then, to reproduce your mirror file, it just interpret and <br>
 follow its statements.
