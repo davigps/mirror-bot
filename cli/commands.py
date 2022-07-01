@@ -3,13 +3,9 @@ import argparse
 import cli.bridge as command
 
 DESCRIPTION = '''
-    You can run your C/C++ code
-    just passing the filename as first argument.
-    Example:
-    'ggpp targetfile.cpp'
-    | You can also pass other arguments to the g++.
-    Example:
-    'ggpp targetfile.cpp -Wall -H'
+    This bot will record every button you press and when you release, on a file
+    with type .mirror, then, to reproduce your mirror file, it just interpret and
+    follow its statements.
     '''
 
 class Commands:
@@ -19,10 +15,10 @@ class Commands:
         self.parser = argparse.ArgumentParser(description=DESCRIPTION)
 
         self.parser.add_argument(
-            '-l', '--list', action='store_true'
+            '-l', '--list', action='store_true', help='list all saved mirrors'
         )
-        self.parser.add_argument('-p', '--play')
-        self.parser.add_argument('-r', '--record')
+        self.parser.add_argument('-p', '--play', help='specify mirror to play')
+        self.parser.add_argument('-r', '--record', help='specify mirror name to be recorded')
 
         args, unknown = self.parser.parse_known_args()
         self.args = args
