@@ -12,8 +12,8 @@ def list_mirrors():
     mirror_files = [file.replace('.mirror', '') for file in listdir(MIRRORS) if is_mirror_file(file)]
     for file in mirror_files: print(file)
 
-def play_mirror( mirror_name: str):
+def play_mirror(mirror_name: str):
     MirrorBot.play_mirror(mirror_name)
 
-def record_mirror( mirror_name: str):
+def record_mirror(mirror_name: str):
     MirrorBot.record_mirror(mirror_name)
