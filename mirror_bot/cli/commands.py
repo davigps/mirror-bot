@@ -1,16 +1,19 @@
-from os import listdir
-from os.path import isfile, join
-
 from mirror_bot import MirrorBot
-from mirror_bot.utils import MIRRORS
+from mirror_bot.utils import delete_mirror_file, get_mirror_files
 
-
-def is_mirror_file(filename: str):
-    return isfile(join(MIRRORS, filename)) and filename.endswith('.mirror')
 
 def list_mirrors():
-    mirror_files = [file.replace('.mirror', '') for file in listdir(MIRRORS) if is_mirror_file(file)]
+    mirror_files = get_mirror_files()
     for file in mirror_files: print(file)
+
+def delete_mirror(mirror_name: str):
+    mirror_files = get_mirror_files()
+
+    if mirror_name not in mirror_files:
+        raise Exception(f'"{mirror_name}" mirror does not exist!')
+    
+    delete_mirror_file(mirror_name)
+    print(f'"{mirror_name}" mirror successfully deleted!')
 
 def play_mirror(mirror_name: str):
     MirrorBot.play_mirror(mirror_name)
