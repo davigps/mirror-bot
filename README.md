@@ -40,18 +40,20 @@ To use the bot, you will need all requirements installed.
 Then, just type:
 
 ```
-./mirrorBOT
+poetry run mirror-bot
 ```
 
-or
+`mirror-bot [-h] [-l] [-p PLAY] [-r RECORD]`
 
-```
-poetry run python src/main.py
-```
+Available options:
 
-The menu will start and you will choose between Record or Play some previously recorded file, if you dont have any file, just type "r" on menu prompt and after the start sound, the bot will record every button you press until you press the escape key (esc). To play some file, just type "p" on menu prompt and type name file, then, the bot will play every press and release on the file.
+`-h, --help            show this help message and exit`
 
-REMEMBER: Press "esc" to stop the recording.
+`-l, --list            list all saved mirrors`
+
+`-p PLAY, --play PLAY  specify mirror to play`
+
+`-r RECORD, --record RECORD   specify mirror name to be recorded`
 
 ### Installing Prerequisites
 
