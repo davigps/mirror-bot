@@ -2,7 +2,7 @@ from mirror_bot import MirrorBot
 from mirror_bot.utils import delete_mirror_file, get_mirror_files
 
 
-def list_mirrors():
+def list_mirrors(_):
     mirror_files = get_mirror_files()
     for file in mirror_files: print(file)
 

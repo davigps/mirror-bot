@@ -9,17 +9,19 @@ DESCRIPTION = '''
     '''
 
 class Bridge:
-    
+    commands_args = {
+        'list': commands.list_mirrors,
+        'play': commands.play_mirror,
+        'record': commands.record_mirror,
+        'delete': commands.delete_mirror
+    }
 
     def __init__(self) -> None:
         self.parser = argparse.ArgumentParser(description=DESCRIPTION)
 
         self._create_args()
+        self.args = self.parser.parse_args()
 
-        args, unknown = self.parser.parse_known_args()
-        self.args = args
-        self.unknown = unknown
-    
     def _create_args(self):
         self.parser.add_argument(
             '-l', '--list', action='store_true', help='list all saved mirrors'
@@ -29,20 +31,9 @@ class Bridge:
         self.parser.add_argument('-d', '--delete', help='specify mirror to be deleted')
     
     def process(self):
-        if self.args.list:
-            commands.list_mirrors()
-            return
-        
-        if self.args.play:
-            commands.play_mirror(self.args.play)
-            return
-        
-        if self.args.record:
-            commands.record_mirror(self.args.record)
-            return
-        
-        if self.args.delete:
-            commands.delete_mirror(self.args.delete)
-            return
+        for command, value in self.args.__dict__.items():
+            if value:
+                self.commands_args[command](value)
+                return
         
         self.parser.print_help()
