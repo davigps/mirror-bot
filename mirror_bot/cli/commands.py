@@ -1,6 +1,6 @@
 import argparse
 
-import cli.bridge as command
+import mirror_bot.cli.bridge as command
 
 DESCRIPTION = '''
     This bot will record every button you press and when you release, on a file

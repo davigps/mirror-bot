@@ -1,4 +1,5 @@
-from cli.commands import Commands
+#!/usr/bin/env python
+from mirror_bot.cli.commands import Commands
 
 
 def run():

@@ -4,6 +4,9 @@ version = "0.1.0"
 description = "This bot record and/or reproduce everything you do on your keyboard and mouse."
 authors = ["Davi Sousa <davi.gomes.sousa@ccc.ufcg.edu.br>"]
 
+[tool.poetry.scripts]
+mirror-bot = 'mirror_bot.cli.main:run'
+
 [tool.poetry.dependencies]
 python = "^3.6"
 pynput = "^1.7.6"
