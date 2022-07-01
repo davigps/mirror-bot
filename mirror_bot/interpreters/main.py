@@ -1,7 +1,7 @@
 from io import TextIOWrapper
 from typing import List
 
-from interpreters.setence import Setence
+from mirror_bot.interpreters.setence import Setence
 
 
 class Interpreter:

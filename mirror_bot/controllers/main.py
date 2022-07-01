@@ -2,8 +2,8 @@ from typing import List
 
 import pynput
 
-from controllers import keyboard, mouse
-from interpreters.setence import Setence
+from mirror_bot.controllers import keyboard, mouse
+from mirror_bot.interpreters.setence import Setence
 
 
 class Controller:

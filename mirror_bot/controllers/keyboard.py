@@ -2,7 +2,7 @@ from time import sleep
 
 from pynput.keyboard import Controller, Key
 
-from interpreters.setence import Setence
+from mirror_bot.interpreters.setence import Setence
 
 
 def read_setence(controller: Controller, setence: Setence):

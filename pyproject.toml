@@ -6,7 +6,6 @@ authors = ["Davi Sousa <davi.gomes.sousa@ccc.ufcg.edu.br>"]
 
 [tool.poetry.dependencies]
 python = "^3.6"
-pydub = "^0.25.1"
 pynput = "^1.7.6"
 
 [tool.poetry.dev-dependencies]

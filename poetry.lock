@@ -7,14 +7,6 @@ optional = false
 python-versions = "*"
 
 [[package]]
-name = "pydub"
-version = "0.25.1"
-description = "Manipulate audio with an simple and easy high level interface"
-category = "main"
-optional = false
-python-versions = "*"
-
-[[package]]
 name = "pynput"
 version = "1.7.6"
 description = "Monitor and control user input devices"
@@ -95,15 +87,11 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.6"
-content-hash = "87d1912b88aef61480f54edc0403c68216c15f7a2b0ace0c41493046b59971f1"
+content-hash = "31874d73988a8d3317a5bbf2d8905ab934d017fb691a7e67cc0465b20f6840da"
 
 [metadata.files]
 evdev = [
     {file = "evdev-1.5.0.tar.gz", hash = "sha256:5b33b174f7c84576e7dd6071e438bf5ad227da95efd4356a39fe4c8355412fe6"},
-]
-pydub = [
-    {file = "pydub-0.25.1-py2.py3-none-any.whl", hash = "sha256:65617e33033874b59d87db603aa1ed450633288aefead953b30bded59cb599a6"},
-    {file = "pydub-0.25.1.tar.gz", hash = "sha256:980a33ce9949cab2a569606b65674d748ecbca4f0796887fd6f46173a7b0d30f"},
 ]
 pynput = [
     {file = "pynput-1.7.6-py2.py3-none-any.whl", hash = "sha256:19861b2a0c430d646489852f89500e0c9332e295f2c020e7c2775e7046aa2e2f"},

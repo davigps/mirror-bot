@@ -2,7 +2,7 @@ from time import sleep
 
 from pynput.mouse import Button, Controller
 
-from interpreters.setence import Setence
+from mirror_bot.interpreters.setence import Setence
 
 
 def read_setence(controller: Controller, setence: Setence):
