@@ -1,9 +1,9 @@
-from mirror_bot.cli.commands import Commands
+from mirror_bot.cli.bridge import Bridge
 
 
 def run():
-    commands = Commands()
-    commands.process()
+    bridge = Bridge()
+    bridge.process()
 
 if __name__ == "__main__":
     run()
