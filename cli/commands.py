@@ -1,6 +1,6 @@
 import argparse
 
-from mirror_bot import MirrorBot
+import cli.bridge as command
 
 DESCRIPTION = '''
     You can run your C/C++ code
@@ -16,12 +16,6 @@ class Commands:
     
 
     def __init__(self) -> None:
-        self.command_choices = {
-            'list': self.list_mirrors,
-            'play': self.play_mirror,
-            'record': self.record_mirror
-        }
-
         parse = argparse.ArgumentParser(description=DESCRIPTION)
 
         parse.add_argument(
@@ -36,22 +30,13 @@ class Commands:
     
     def process(self):
         if self.args.list:
-            self.list_mirrors()
+            command.list_mirrors()
             return
         
         if self.args.play:
-            self.play_mirror(self.args.play)
+            command.play_mirror(self.args.play)
             return
         
         if self.args.record:
-            self.record_mirror(self.args.record)
+            command.record_mirror(self.args.record)
             return
-
-    def list_mirrors(self):
-        print('bomdia')
-
-    def play_mirror(self, mirror_name: str):
-        MirrorBot.play_mirror(mirror_name)
-
-    def record_mirror(self, mirror_name: str):
-        MirrorBot.record_mirror(mirror_name)

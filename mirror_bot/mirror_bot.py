@@ -4,7 +4,7 @@ from mirror_bot.controllers.main import Controller
 from mirror_bot.interpreters.main import Interpreter
 from mirror_bot.recorders.keyboard import KeyboardRecorder
 from mirror_bot.recorders.mouse import MouseRecorder
-from mirror_bot.utils import ROOT
+from mirror_bot.utils import get_mirror_path
 
 
 class MirrorBot:
@@ -14,7 +14,7 @@ class MirrorBot:
 
     @classmethod
     def record_mirror(cls, mirror_name: str):
-        record = open(ROOT.joinpath("mirrors", f"{mirror_name}.mirror"), "a")
+        record = open(get_mirror_path(mirror_name), "a")
         delay_information = [None]
 
         k_recorder = KeyboardRecorder(record, delay_information)
@@ -28,7 +28,7 @@ class MirrorBot:
 
     @classmethod
     def play_mirror(cls, mirror_name: str):
-        record = open(ROOT.joinpath("mirrors", f"{mirror_name}.mirror"), "r")
+        record = open(get_mirror_path(mirror_name), "r")
 
         stream = Interpreter(record).get_stream()
 

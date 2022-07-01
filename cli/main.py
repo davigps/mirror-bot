@@ -1,7 +1,4 @@
-import argparse
-import os
-
-from mirror_bot.cli.commands import Commands
+from cli.commands import Commands
 
 
 def run():
