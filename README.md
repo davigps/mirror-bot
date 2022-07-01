@@ -28,8 +28,8 @@ to reproduce that routine previously saved. It's very useful to save your precio
 
 ## 💭 How it works <a name = "working"></a>
 
-The bot will record every button you press and when you release that button on a file <br>
-with type .mirror, then, to reproduce your mirror file, it just interpret and <br>
+The bot will record every button you press and when you release it on a file <br>
+with extension .mirror, then, to reproduce your mirror file, it just interpret and <br>
 follow its statements.
 
 The entire bot is written in Python 3.6.
